@@ -402,7 +402,8 @@ func executeTests(c *kubernetes.Clientset) bool {
 func selectNode(nodes *api.NodeList, alreadySelected string) api.Node {
 	for _, node := range nodes.Items {
 		name := node.GetName()
-		match, _ := regexp.MatchString("node", name)
+		//match, _ := regexp.MatchString("node", name)
+		match, _ := regexp.MatchString("node-[13]", name)
 		if match && name != alreadySelected {
 			return node
 		}
